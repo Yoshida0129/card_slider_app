@@ -15,6 +15,12 @@
     button:hover {
       opacity: 0.5;
     }
+    button:disabled{
+      cursor: default;
+      &:hover{
+        opacity: 1.0;
+      }
+    }
     button:first-child {
       @include btn(50px);
       i {
@@ -25,6 +31,7 @@
     button:nth-child(2n) {
       @include btn(40px);
       i {
+        color: $second-black;
         font-size: 18px;
       }
     }

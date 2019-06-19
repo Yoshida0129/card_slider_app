@@ -9,6 +9,7 @@ export default class Body extends Component {
     super();
     this.state = {
       user_data: [...createDataList()],
+      is_moving: false,
       scroll: 'center-wait'
     };
   }
@@ -16,6 +17,7 @@ export default class Body extends Component {
   isLike = (ans) => {
     this.setState(() => {
       return {
+        is_moving: true,
         scroll: ans ? 'right-scroll' : 'left-scroll'
       }
     });
@@ -25,6 +27,7 @@ export default class Body extends Component {
       this.setState(() => {
         return {
           user_data: createDataList(data),
+          is_moving: false,
           scroll: 'center-wait'
         }
       });
@@ -38,13 +41,21 @@ export default class Body extends Component {
           {cardContainer(this.state)}
         </div>
         <div className='button-area'>
-          <button onClick={() => this.isLike(false)}>
+          <button
+              onClick={() => this.isLike(false)}
+              disabled={this.state.is_moving}
+          >
             <i className='fas fa-times'/>
           </button>
-          <button>
+          <button
+              disabled={this.state.is_moving}
+          >
             <i className='fas fa-info'/>
           </button>
-          <button onClick={() => this.isLike(true)}>
+          <button
+              onClick={() => this.isLike(true)}
+              disabled={this.state.is_moving}
+          >
             <i className='fas fa-heart'/>
           </button>
         </div>
