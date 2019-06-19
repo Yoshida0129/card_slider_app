@@ -12,6 +12,9 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    button:hover {
+      opacity: 0.5;
+    }
     button:first-child {
       @include btn(50px);
       i {
