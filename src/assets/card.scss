@@ -1,4 +1,11 @@
 @import 'setting.scss';
+@import 'animation.scss';
+
+@mixin animation($animation_name, $time: 0.5s) {
+  animation-name: $animation_name;
+  animation-duration: $time;
+  animation-fill-mode: forwards;
+}
 
 .card-contents {
   width: 300px;
@@ -15,4 +22,16 @@
 
 .main-scroll {
   z-index: 10;
+}
+
+.center-wait {
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.right-scroll {
+  @include animation(right_scroll);
+}
+
+.left-scroll {
+  @include animation(left_scroll);
 }
