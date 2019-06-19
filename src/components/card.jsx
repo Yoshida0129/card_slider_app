@@ -1,11 +1,10 @@
 import React from 'react';
 import '../assets/card.scss';
 import avatar from '../components/avatar';
-import { callbackify } from 'util';
 
 const Card = (props) => {
   return (
-    <article className={'card-contents' + ' ' + props.class} style={props.style}>
+    <article className={`card-contents ${props.class}`} style={props.style}>
       {avatar(props.user.avatar)}
       <p>{props.user.name}</p>
       <p>{props.user.age}</p>
@@ -34,6 +33,7 @@ const cardContainer = (props) => {
         style={cardPosition(index, props.user_data.length)}
       />
     )
+    return card_list;
   })
   return card_list;
 }
