@@ -14,10 +14,6 @@ const avatar = (props) => {
       eyebrowType={props.eyebrowType}
       mouthType={props.mouthType}
       skinColor={props.skinColor}
-      style={{
-        width: 300 + 'px',
-        height: 300 + 'px'
-      }}
     />
   )
 }

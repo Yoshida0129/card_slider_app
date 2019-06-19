@@ -1,31 +1,42 @@
 @import 'setting.scss';
 @import 'animation.scss';
 
-@mixin animation($animation_name, $time: 0.5s) {
-  animation-name: $animation_name;
-  animation-duration: $time;
-  animation-fill-mode: forwards;
-}
-
-.card-contents {
-  width: 300px;
-  height: 400px;
+.card-container {
+  // width: 300px;
+  height: 350px;
   margin: 0 auto;
   border-radius: 10px;
-  border: 1px solid $black;
+  border: $border_style;
   background-color: $white;
   position: absolute;
-  top: 50%;
+  // top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-}
-
-.main-scroll {
-  z-index: 10;
+  .img-item {
+    width: 264px;
+    margin: 0 auto;
+  }
+  .text-item {
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    margin-left: 50px;
+    p{
+      color: $first-black;
+      &:first-child{
+        font-size: 21px;
+        padding-bottom: 3px;
+      }
+    }
+    
+  }
 }
 
 .center-wait {
-  transform: translateX(-50%) translateY(-50%);
+  width: calc(300px - 1%) !important;
+  top: 51% !important;
+  @include animation(main_scroll, 0.1s);
 }
 
 .right-scroll {

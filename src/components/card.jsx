@@ -4,10 +4,14 @@ import avatar from '../components/avatar';
 
 const Card = (props) => {
   return (
-    <article className={`card-contents ${props.class}`} style={props.style}>
-      {avatar(props.user.avatar)}
-      <p>{props.user.name}</p>
-      <p>{props.user.age}</p>
+    <article className={`card-container ${props.class}`} style={props.style}>
+      <div className='img-item'>
+        {avatar(props.user.avatar)}
+      </div>
+      <div className='text-item'>
+        <p>{props.user.name}</p>
+        <p>age {props.user.age}</p>
+      </div>
     </article>
   )
 }
@@ -16,15 +20,14 @@ const cardPosition = (order, listLength) => {
   return {
     top: (50 + order) + '%',
     zIndex: Math.abs(listLength - order),
-    width: `calc(300px - ${order / 5}%)`
+    width: `calc(300px - ${order}%)`
   }
 }
-
 
 const cardContainer = (props) => {
   let card_list = [];
   props.user_data.map((val, index) => {
-    let mainScroll = index === 0 ? props.scroll : 'center-wait';
+    let mainScroll = index === 0 ? props.scroll : '';
     card_list.push(
       <Card
         user={val}

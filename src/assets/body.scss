@@ -1,7 +1,36 @@
 @import 'setting.scss';
 
-.card-area {
-  position: relative;
-  height: 500px;
-  width: 100%;
+#main-container{
+  .card-area {
+    position: relative;
+    width: 100%;
+    height: 500px;
+  }
+  .button-area {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    button:first-child {
+      @include btn(50px);
+      i {
+        color: $blue;
+        font-size: 25px;
+      }
+    }
+    button:nth-child(2n) {
+      @include btn(40px);
+      i {
+        font-size: 18px;
+      }
+    }
+    button:last-child {
+      @include btn(50px);
+      i {
+        color: $red;
+        font-size: 25px;
+      }
+    }
+  }
 }

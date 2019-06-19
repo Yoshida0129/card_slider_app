@@ -33,12 +33,21 @@ export default class Body extends Component {
 
   render() {
     return (
-      <div>
+      <div id='main-container'>
         <div className='card-area'>
           {cardContainer(this.state)}
         </div>
-        <button onClick={() => this.isLike(false)}>Nope</button>
-        <button onClick={() => this.isLike(true)}>Like</button>
+        <div className='button-area'>
+          <button onClick={() => this.isLike(false)}>
+            <i className='fas fa-times'/>
+          </button>
+          <button>
+            <i className='fas fa-info'/>
+          </button>
+          <button onClick={() => this.isLike(true)}>
+            <i className='fas fa-heart'/>
+          </button>
+        </div>
       </div>
     )
   }

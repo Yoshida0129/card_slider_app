@@ -1,2 +1,20 @@
-$black: rgba(0, 0, 0, 0.7);
+$first-black: rgba(0, 0, 0, 0.9);
+$second-black: rgba(0, 0, 0, 0.7);
 $white: #F7F7F7;
+$red: #D53E62;
+$blue: #307EB8;
+
+$border_style: 1px solid $second-black;
+
+@mixin animation($animation_name, $time: 0.5s) {
+  animation-name: $animation_name;
+  animation-duration: $time;
+  animation-fill-mode: forwards;
+}
+
+@mixin btn ($size){
+  width: $size;
+  height: $size;
+  border: $border_style;
+  border-radius: 50%;
+}
