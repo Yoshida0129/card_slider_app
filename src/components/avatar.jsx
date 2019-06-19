@@ -2,7 +2,6 @@ import React from 'react';
 import Avatar from 'avataaars';
 
 const avatar = (props) => {
-  console.log(props)
   return ( 
     <Avatar
       avatarStyle={props.avatarStyle}

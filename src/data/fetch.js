@@ -21,7 +21,6 @@ const generateAvatarOption = () => {
 
 const fetchUserData = () => {
   const user_data = randomlyOneOfList(people);
-  console.log(user_data);
   user_data.avatar = generateAvatarOption()
   return user_data;
 }
