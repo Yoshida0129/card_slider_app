@@ -10,6 +10,7 @@ export default class Body extends Component {
     this.state = {
       user_data: [...createDataList()],
       is_moving: false,
+      show_front: true,
       scroll: 'center-wait'
     };
   }
@@ -34,6 +35,14 @@ export default class Body extends Component {
     }, 500);
   }
 
+  isShowBackToggle = () => {
+    this.setState(() => {
+      return {
+        show_front: this.state.show_front ? false : true
+      }
+    });
+  }
+
   render() {
     return (
       <div id='main-container'>
@@ -48,6 +57,7 @@ export default class Body extends Component {
             <i className='fas fa-times'/>
           </button>
           <button
+              onClick={() => this.isShowBackToggle()}
               disabled={this.state.is_moving}
           >
             <i className='fas fa-info'/>

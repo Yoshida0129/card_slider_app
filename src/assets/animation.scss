@@ -16,3 +16,31 @@
     top: 50%;
   }
 }
+
+@keyframes to_front{
+  0% {
+    transform: translateX(-50%) translateY(-50%) rotateY(180deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-50%) rotateY(270deg);
+    
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotateY(360deg);
+    z-index: 20 !important;
+  }
+}
+
+@keyframes to_back{
+  0% {
+    transform: translateX(-50%) translateY(-50%) rotateY(0deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-50%) rotateY(90deg);
+    
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotateY(180deg);
+    z-index: 15 !important;
+  }
+}

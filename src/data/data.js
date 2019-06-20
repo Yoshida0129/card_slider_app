@@ -1,39 +1,66 @@
 export const people = [
   {
     name: 'Linda',
-    age: 25
+    age: 25,
+    from: 'America',
+    work: 'Designer',
+    hobby: 'Soccer'
   },
   {
     name: 'Lisa',
-    age: 20
+    age: 20,
+    from: 'America',
+    work: 'Engineer',
+    hobby: 'Listen to music'
   },
   {
     name: 'Sandra',
-    age: 18
+    age: 18,
+    from: 'America',
+    work: 'Teacher',
+    hobby: 'Study'
   },
   {
     name: 'Chloe',
-    age: 18
+    age: 18,
+    from: 'America',
+    work: 'Singer Songwriter',
+    hobby: 'Art'
   },
   {
     name: 'Alexa',
-    age: 23
+    age: 23,
+    from: 'America',
+    work: 'Palot',
+    hobby: 'Running'
   },
   {
     name: 'Maria',
-    age: 21
+    age: 21,
+    from: 'America',
+    work: 'Patissier',
+    hobby: 'Cooking'
   },
   {
     name: 'Emma',
-    age: 24
+    age: 24,
+    from: 'America',
+    work: 'Youtuber',
+    hobby: 'Clean up'
   },
   {
     name: 'Sara',
-    age: 18
+    age: 18,
+    from: 'America',
+    work: 'Police',
+    hobby: 'Cycling'
   },
   {
     name: 'Lara',
-    age: 22
+    age: 22,
+    from: 'America',
+    work: 'Doctor',
+    hobby: 'Human observation'
   }
 ]
 
