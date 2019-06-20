@@ -10,7 +10,7 @@ export default class Body extends Component {
     this.state = {
       user_data: [...createDataList()],
       is_moving: false,
-      show_front: true,
+      show_status: 0,
       scroll: 'center-wait'
     };
   }
@@ -29,6 +29,7 @@ export default class Body extends Component {
         return {
           user_data: createDataList(data),
           is_moving: false,
+          show_status: 0,
           scroll: 'center-wait'
         }
       });
@@ -38,7 +39,7 @@ export default class Body extends Component {
   isShowBackToggle = () => {
     this.setState(() => {
       return {
-        show_front: this.state.show_front ? false : true
+        show_status: this.state.show_status === 2 ? 1 : 2
       }
     });
   }

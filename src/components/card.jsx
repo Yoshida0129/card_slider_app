@@ -55,6 +55,19 @@ const cardPosition = (order, isBack) => {
   }
 }
 
+const showCardClass= (index, status, isBack) => {
+  if (index === 0) {
+    switch (status) {
+      case 1:
+        return isBack ? 'show-back-card' : 'show-front-card';
+      case 2:
+        return isBack ? 'show-front-card' : 'show-back-card';
+      default:
+        return ''
+    }
+  }
+}
+
 const cardContainer = (props) => {
   let card_list = [];
   props.user_data.map((val, index) => {
@@ -63,13 +76,13 @@ const cardContainer = (props) => {
       <FrontCard
           user={val}
           key={index}
-          class={mainScroll + ' ' + (index !== 0 ? '' : props.show_front ? 'show-front-card' : 'show-back-card')}
+          class={mainScroll + ' ' + (showCardClass(index, props.show_status, false))}
           style={cardPosition(index, false)}
       />,
       <BackCard
           user={val}
           key={index + props.user_data.length}
-          class={mainScroll + ' ' + (index !== 0 ? '' : !props.show_front ? 'show-front-card' : 'show-back-card')}
+          class={mainScroll + ' ' + (showCardClass(index, props.show_status, true))}
           style={cardPosition(index, true)}
       />
     )

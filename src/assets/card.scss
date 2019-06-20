@@ -3,14 +3,12 @@
 
 .card-area {
   .card-container {
-    // width: 300px;
     height: 350px;
     margin: 0 auto;
     border-radius: 10px;
     border: $border_style;
     background-color: $white;
     position: absolute;
-    // top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     @for $i from 1 through 5 {
