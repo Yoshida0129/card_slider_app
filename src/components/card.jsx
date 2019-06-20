@@ -2,12 +2,6 @@ import React from 'react';
 import '../assets/card.scss';
 import avatar from '../components/avatar';
 
-// this.state = {
-//   user_data: [...createDataList()],
-//   is_moving: false,
-//   scroll: 'center-wait'
-// };
-
 const FrontCard = (props) => {
   return (
     <article
@@ -53,7 +47,7 @@ const BackCard = (props) => {
   );
 }
 
-const cardPosition = (order, listLength, isBack) => {
+const cardPosition = (order, isBack) => {
   return {
     display: order !== 0 && isBack ? 'none' : 'flex',
     top: (50 + order) + '%',
@@ -70,13 +64,13 @@ const cardContainer = (props) => {
           user={val}
           key={index}
           class={mainScroll + ' ' + (index !== 0 ? '' : props.show_front ? 'show-front-card' : 'show-back-card')}
-          style={cardPosition(index, props.user_data.length, false)}
+          style={cardPosition(index, false)}
       />,
       <BackCard
           user={val}
           key={index + props.user_data.length}
           class={mainScroll + ' ' + (index !== 0 ? '' : !props.show_front ? 'show-front-card' : 'show-back-card')}
-          style={cardPosition(index, props.user_data.length, true)}
+          style={cardPosition(index, true)}
       />
     )
     return card_list;
