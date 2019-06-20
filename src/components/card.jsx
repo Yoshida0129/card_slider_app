@@ -2,6 +2,11 @@ import React from 'react';
 import '../assets/card.scss';
 import avatar from '../components/avatar';
 
+const windowSize = {
+  width_parsenter: window.innerWidth / 100,
+  height_parsenter: window.innerHeight / 105
+}
+
 const FrontCard = (props) => {
   return (
     <article
@@ -47,7 +52,15 @@ const BackCard = (props) => {
   );
 }
 
-const cardPosition = (order, isBack) => {
+const cardPosition = (order, isBack, position) => {
+  if(order === 0 && ( position.X || position.Y )){
+    return {
+      display: order !== 0 && isBack ? 'none' : 'flex',
+      top: position.Y / windowSize.height_parsenter + '%',
+      left: position.X / windowSize.width_parsenter + '%',
+      width: `calc(300px - ${order}%)`
+    }
+  }
   return {
     display: order !== 0 && isBack ? 'none' : 'flex',
     top: (50 + order) + '%',
@@ -68,7 +81,7 @@ const showCardClass= (index, status, isBack) => {
   }
 }
 
-const cardContainer = (props) => {
+const cardContainer = (props, position) => {
   let card_list = [];
   props.user_data.map((val, index) => {
     let mainScroll = index === 0 ? props.scroll : '';
@@ -77,13 +90,13 @@ const cardContainer = (props) => {
           user={val}
           key={index}
           class={mainScroll + ' ' + (showCardClass(index, props.show_status, false))}
-          style={cardPosition(index, false)}
+          style={cardPosition(index, false, position)}
       />,
       <BackCard
           user={val}
           key={index + props.user_data.length}
           class={mainScroll + ' ' + (showCardClass(index, props.show_status, true))}
-          style={cardPosition(index, true)}
+          style={cardPosition(index, true, position)}
       />
     )
     return card_list;

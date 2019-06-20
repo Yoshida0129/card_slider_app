@@ -1,12 +1,24 @@
-@keyframes right_scroll {
+@keyframes right_scroll_pc {
   100% {
     left: 120%;
   }
 }
 
-@keyframes left_scroll {
+@keyframes left_scroll_pc {
   100% {
     left: -20%;
+  }
+}
+
+@keyframes right_scroll_phone {
+  100% {
+    left: 150%;
+  }
+}
+
+@keyframes left_scroll_phone {
+  100% {
+    left: -50%;
   }
 }
 

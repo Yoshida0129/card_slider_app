@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import cardContainer from '../components/card';
+import HammerArea from '../components/hammer';
 import {createDataList} from '../data/fetch';
 
 import '../assets/body.scss';
@@ -11,7 +11,7 @@ export default class Body extends Component {
       user_data: [...createDataList()],
       is_moving: false,
       show_status: 0,
-      scroll: 'center-wait'
+      scroll: ''
     };
   }
 
@@ -30,7 +30,7 @@ export default class Body extends Component {
           user_data: createDataList(data),
           is_moving: false,
           show_status: 0,
-          scroll: 'center-wait'
+          scroll: ''
         }
       });
     }, 500);
@@ -47,24 +47,26 @@ export default class Body extends Component {
   render() {
     return (
       <div id='main-container'>
-        <div className='card-area'>
-          {cardContainer(this.state)}
-        </div>
+        <HammerArea 
+            card_data={this.state}
+            func_like={(is_like) => this.isLike(is_like)}
+            func_show_info={() => this.isShowBackToggle()}
+        />
         <div className='button-area'>
           <button
-              onClick={() => this.isLike(false)}
+              onClick={this.isLike.bind(this, false)}
               disabled={this.state.is_moving}
           >
             <i className='fas fa-times'/>
           </button>
           <button
-              onClick={() => this.isShowBackToggle()}
+              onClick={this.isShowBackToggle.bind(this)}
               disabled={this.state.is_moving}
           >
             <i className='fas fa-info'/>
           </button>
           <button
-              onClick={() => this.isLike(true)}
+              onClick={this.isLike.bind(this, true)}
               disabled={this.state.is_moving}
           >
             <i className='fas fa-heart'/>
