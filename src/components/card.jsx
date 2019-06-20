@@ -2,11 +2,6 @@ import React from 'react';
 import '../assets/card.scss';
 import avatar from '../components/avatar';
 
-const windowSize = {
-  width_parsenter: window.innerWidth / 100,
-  height_parsenter: window.innerHeight / 105
-}
-
 const FrontCard = (props) => {
   return (
     <article
@@ -56,8 +51,8 @@ const cardPosition = (order, isBack, position) => {
   if(order === 0 && ( position.X || position.Y )){
     return {
       display: order !== 0 && isBack ? 'none' : 'flex',
-      top: position.Y / windowSize.height_parsenter + '%',
-      left: position.X / windowSize.width_parsenter + '%',
+      top: ((position.Y / window.innerHeight) * 100) + '%',
+      left: ((position.X / window.innerWidth) * 100) + '%',
       width: `calc(300px - ${order}%)`
     }
   }

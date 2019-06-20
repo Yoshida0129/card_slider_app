@@ -25,11 +25,10 @@ export default class HammerArea extends Component {
   }
 
   onDragEnd = (e) => {
-
-    if (e.deltaX < 0){
-      this.props.func_like(false)
-    } else if (0 < e.deltaX){
-      this.props.func_like(true)
+    if (e.deltaX < -50){
+      this.props.func_like(false);
+    } else if (50 < e.deltaX){
+      this.props.func_like(true);
     }
     this.setState(() => {
       return {
