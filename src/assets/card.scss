@@ -10,6 +10,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+  backface-visibility: hidden;
   @for $i from 1 through 5 {
     &:nth-child(#{$i}) {
       z-index: calc(10 - #{$i});
